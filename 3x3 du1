@@ -7,7 +7,8 @@ b=3
 strana = 50
 turtle.speed(0)
 S=sqrt((50*50)+(50*50))
-    # Nakreslí pole
+n=0
+# Nakreslí pole
 for y in range(b):
     for x in range(a):
 	    for i in range(4):
@@ -20,29 +21,31 @@ for y in range(b):
     turtle.forward(strana)
     turtle.left(90)
 turtle.setheading(0)
-n=0
+
 #samotná hra
 while n<(a*b):
     m=n/2
-    if n//2==m:
+    if n//2==m: #kdo hraje
         print("hraje křížek")
     else:
         print("hraje kolečko")
         #zadavání sousřadnic
-    T1=float(input("řádek(1 až 3) - "))
-    T2=float(input("sloupec(1 až 3) - " ))
+    t1=float(input("řádek(1 až 3) - "))
+    t2=float(input("sloupec(1 až 3) - " ))
+
     #ochrana před špatnými vstupy
-    if 0>T1 or T1>3 or T2 <0 or T2>3 :
+    if 0>t1 or t1>3 or t2 <0 or t2>3 :
         print("špatný vstup, znova")
         pass
     else:
-        tah1=(T1-1)*(-50)
-        tah2=(T2-1)*50
+        tah1=(t1-1)*(-50)
+        tah2=(t2-1)*50
         turtle.penup()
         turtle.setpos(tah2,tah1)
         turtle.pendown()
         turtle.setheading(0)
         m=n/2
+    
         #křížek
         if n//2==m :
             turtle.color("red")
@@ -55,6 +58,7 @@ while n<(a*b):
             turtle.left(135)
             turtle.forward(S)
             turtle.setheading(0)
+    
         else: #kolečko
             turtle.penup()
             turtle.right(90)
@@ -67,3 +71,4 @@ while n<(a*b):
         n+=1
 print("konec")
 turtle.mainloop()
+turtle.exitonclick()
