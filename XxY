@@ -6,6 +6,8 @@ b=int(input("výška pole - "))
 strana = 50
 turtle.speed(0)
 S=sqrt((50*50)+(50*50))
+n=0
+
 for y in range(b):
     for x in range(a):
 	    for i in range(4):
@@ -18,21 +20,22 @@ for y in range(b):
     turtle.forward(strana)
     turtle.left(90)
 turtle.setheading(0)
-n=0
+
 while n<(a*b):
     m=n/2
+
     if n//2==m:
         print("hraje křížek")
     else:
         print("hraje kolečko")
-    T1=float(input("řádek - "))
-    T2=float(input("sloupec - " ))
-    if 0>T1 or T1>a or T2 <0 or T2>b :
+    t1=int(input("řádek - "))
+    t2=int(input("sloupec - " ))
+    if 0>t1 or t1>a or t2 <0 or t2>b :
         print("špatný vstup, znova")
         pass
     else:
-        tah1=(T1-1)*(-50)
-        tah2=(T2-1)*50
+        tah1=(t1-1)*(-50)
+        tah2=(t2-1)*50
         turtle.penup()
         turtle.setpos(tah2,tah1)
         turtle.pendown()
