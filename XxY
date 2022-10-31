@@ -1,0 +1,63 @@
+import turtle
+from math import sqrt
+turtle.title("Piškvorky")
+a=int(input("šířka pole - "))
+b=int(input("výška pole - "))
+strana = 50
+turtle.speed(0)
+S=sqrt((50*50)+(50*50))
+for y in range(b):
+    for x in range(a):
+	    for i in range(4):
+		    turtle.forward(strana)
+		    turtle.right(90)
+	    turtle.forward(strana)
+    turtle.left(180)
+    turtle.forward(a*strana)
+    turtle.left(90)
+    turtle.forward(strana)
+    turtle.left(90)
+turtle.setheading(0)
+n=0
+while n<(a*b):
+    m=n/2
+    if n//2==m:
+        print("hraje křížek")
+    else:
+        print("hraje kolečko")
+    T1=float(input("řádek - "))
+    T2=float(input("sloupec - " ))
+    if 0>T1 or T1>a or T2 <0 or T2>b :
+        print("špatný vstup, znova")
+        pass
+    else:
+        tah1=(T1-1)*(-50)
+        tah2=(T2-1)*50
+        turtle.penup()
+        turtle.setpos(tah2,tah1)
+        turtle.pendown()
+        turtle.setheading(0)
+        m=n/2
+        if n//2==m :
+            turtle.color("red")
+            turtle.right(45)
+            turtle.forward(S)
+            turtle.left(135)
+            turtle.penup()
+            turtle.forward(50)
+            turtle.pendown()
+            turtle.left(135)
+            turtle.forward(S)
+            turtle.setheading(0)
+        else:
+            turtle.penup()
+            turtle.right(90)
+            turtle.forward(25)
+            turtle.pendown()
+            turtle.color("blue")
+            turtle.circle(25,360,45)
+            turtle.setheading(0)
+        
+        n+=1
+print("konec")
+turtle.mainloop()
