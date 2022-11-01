@@ -3,9 +3,9 @@ from math import sqrt
 turtle.title("Piškvorky")
 a=int(input("počet polí na šířku  - "))
 b=int(input("počet polí na výšku - "))
-strana = 50
+strana = int(input("šírka jednoho políčka(doporučuji 50) - "))
 turtle.speed(0)
-S=sqrt((50*50)+(50*50))
+S=sqrt(2*(strana*strana))
 n=0
 L=[]
 
