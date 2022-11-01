@@ -6,7 +6,7 @@ a=3
 b=3
 strana = 50
 turtle.speed(0)
-S=sqrt((50*50)+(50*50))
+S=sqrt(2*(strana*strana))
 n=0
 L=[]
 # Nakreslí pole
@@ -36,7 +36,7 @@ while n<(a*b):
     dvojice=[t1,t2]
     L.append(dvojice)
     if L.count(dvojice) == 1 :
-        if 0<t1<=3 and 0<t2<=3:
+        if 1<=t1<=3 and 1<=t2<=3:
             tah1=(t1-1)*(-50)
             tah2=(t2-1)*50
             turtle.penup()
