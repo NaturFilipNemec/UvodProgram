@@ -37,8 +37,8 @@ while n<(a*b):
     L.append(dvojice)
     if L.count(dvojice) == 1 :
         if 1<=t1<=3 and 1<=t2<=3:
-            tah1=(t1-1)*(-50)
-            tah2=(t2-1)*50
+            tah1=(t1-1)*(-1*strana)
+            tah2=(t2-1)*strana
             turtle.penup()
             turtle.setpos(tah2,tah1)
             turtle.pendown()
@@ -51,7 +51,7 @@ while n<(a*b):
                 turtle.forward(S)
                 turtle.left(135)
                 turtle.penup()
-                turtle.forward(50)
+                turtle.forward(strana)
                 turtle.pendown()
                 turtle.left(135)
                 turtle.forward(S)
@@ -61,10 +61,10 @@ while n<(a*b):
             else: #kolečko
                 turtle.penup()
                 turtle.right(90)
-                turtle.forward(25)
+                turtle.forward(strana/2)
                 turtle.pendown()
                 turtle.color("blue")
-                turtle.circle(25,360,45)
+                turtle.circle(strana/2,360,45)
                 turtle.setheading(0)
                 n+=1
         else:

@@ -31,40 +31,42 @@ while n<(a*b):
     t2=int(input("sloupec - " ))
     dvojice=[t1,t2]
     L.append(dvojice)
-    if L.count(dvojice)>1:
-        print("souřadnice už použita, znova")
-        continue
-    else:
-        if 0>t1 or t1>a or t2 <0 or t2>b :
-            print("špatný vstup, znova")
-            continue
-        else:
-            tah1=(t1-1)*(-50)
-            tah2=(t2-1)*50
+    if L.count(dvojice)==1:
+        if 1<=t1<=a and 1<=t2<=b:
+            tah1=(t1-1)*(-1*strana)
+            tah2=(t2-1)*strana
             turtle.penup()
             turtle.setpos(tah2,tah1)
             turtle.pendown()
-            turtle.setheading(0)
+            turtle.setheading(0)        
+    
+            #křížek
             if n%2==0 :
                 turtle.color("red")
                 turtle.right(45)
                 turtle.forward(S)
                 turtle.left(135)
                 turtle.penup()
-                turtle.forward(50)
+                turtle.forward(strana)
                 turtle.pendown()
                 turtle.left(135)
                 turtle.forward(S)
                 turtle.setheading(0)
-            else:
+                n+=1
+    
+            else: #kolečko
                 turtle.penup()
                 turtle.right(90)
-                turtle.forward(25)
+                turtle.forward(strana/2)
                 turtle.pendown()
                 turtle.color("blue")
-                turtle.circle(25,360,45)
+                turtle.circle(strana/2,360,45)
                 turtle.setheading(0)
-        
-        n+=1
+                n+=1
+        else:
+            print("špatný vstup, znova")
+    else:
+        print("souřadnice už použity, znova")
+
 print("konec")
 turtle.exitonclick()
