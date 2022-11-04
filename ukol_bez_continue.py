@@ -7,8 +7,9 @@ b=3
 strana = 50
 turtle.speed(0)
 S=sqrt(2*(strana*strana))
+#pomocný proměnný
 n=0
-L=[]
+List=[]
 # Nakreslí pole
 for y in range(b):
     for x in range(a):
@@ -34,8 +35,8 @@ while n<(a*b):
     t2=int(input("sloupec(1 až 3) - " ))
     #ochrana před použitím stejných vstupu
     dvojice=[t1,t2]
-    L.append(dvojice)
-    if L.count(dvojice) == 1 :
+    List.append(dvojice)
+    if List.count(dvojice) == 1 :
         if 1<=t1<=3 and 1<=t2<=3:
             tah1=(t1-1)*(-1*strana)
             tah2=(t2-1)*strana
