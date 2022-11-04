@@ -1,8 +1,8 @@
 import turtle
 from math import sqrt
 turtle.title("Piškvorky")
-a=int(input("počet polí na šířku  - "))
-b=int(input("počet polí na výšku - "))
+a=int(input("počet polí na šířku  - "))#počet sloupcu
+b=int(input("počet polí na výšku - "))#pocet radku
 strana = int(input("šírka jednoho políčka(doporučuji 50) - "))
 turtle.speed(0)
 S=sqrt(2*(strana*strana))
@@ -27,16 +27,16 @@ while n<(a*b):
         print("hraje křížek")
     else:
         print("hraje kolečko")
-    t1=int(input("řádek - "))
-    t2=int(input("sloupec - " ))
-    dvojice=[t1,t2]
+    radek=int(input("řádek - "))
+    sloupec=int(input("sloupec - " ))
+    dvojice=[radek,sloupec]
     L.append(dvojice)
     if L.count(dvojice)==1:
-        if 1<=t1<=a and 1<=t2<=b:
-            tah1=(t1-1)*(-1*strana)
-            tah2=(t2-1)*strana
+        if 1<=radek<=b and 1<=sloupec<=a:
+            tah1=(sloupec-1)*strana
+            tah2=(radek-1)*strana*(-1)
             turtle.penup()
-            turtle.setpos(tah2,tah1)
+            turtle.setpos(tah1,tah2)
             turtle.pendown()
             turtle.setheading(0)        
     
