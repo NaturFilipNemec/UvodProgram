@@ -6,9 +6,9 @@ a=3
 b=3
 strana = 50
 turtle.speed(0)
-S=sqrt(2*(strana*strana))
+přepona=sqrt(2*(strana*strana))
 #pomocný proměnný
-n=0
+cyklus=0
 List=[]
 # Nakreslí pole
 for y in range(b):
@@ -25,8 +25,8 @@ for y in range(b):
 turtle.setheading(0)
 
 #samotná hra
-while n<(a*b):
-    if n%2==0: #kdo hraje
+while cyklus<(a*b):
+    if cyklus%2==0: #kdo hraje
         print("hraje křížek")
     else:
         print("hraje kolečko")
@@ -34,10 +34,10 @@ while n<(a*b):
     t1=int(input("řádek(1 až 3) - "))
     t2=int(input("sloupec(1 až 3) - " ))
     #ochrana před použitím stejných vstupu
-    dvojice=[t1,t2]
-    List.append(dvojice)
-    if List.count(dvojice) == 1 :
-        if 1<=t1<=3 and 1<=t2<=3:
+    if 1<=t1<=3 and 1<=t2<=3:
+        dvojice=[t1,t2]
+        List.append(dvojice)
+        if List.count(dvojice) == 1 :
             tah1=(t1-1)*(-1*strana)
             tah2=(t2-1)*strana
             turtle.penup()
@@ -46,18 +46,18 @@ while n<(a*b):
             turtle.setheading(0)        
     
             #křížek
-            if n%2==0 :
+            if cyklus%2==0 :
                 turtle.color("red")
                 turtle.right(45)
-                turtle.forward(S)
+                turtle.forward(přepona)
                 turtle.left(135)
                 turtle.penup()
                 turtle.forward(strana)
                 turtle.pendown()
                 turtle.left(135)
-                turtle.forward(S)
+                turtle.forward(přepona)
                 turtle.setheading(0)
-                n+=1
+                cyklus+=1
     
             else: #kolečko
                 turtle.penup()
@@ -67,11 +67,11 @@ while n<(a*b):
                 turtle.color("blue")
                 turtle.circle(strana/2,360,45)
                 turtle.setheading(0)
-                n+=1
+                cyklus+=1
         else:
-            print("špatný vstup, znova")
+            print("souřadnice už použity, znova")
     else:
-        print("souřadnice už použity, znova")
+        print("špatný vstup, znova")
 
 print("konec")
 turtle.exitonclick()
