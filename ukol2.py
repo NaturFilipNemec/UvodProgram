@@ -24,10 +24,13 @@ def sedm_dnu(): #vypocet prumeru
         return(prumer_tydem)
         print(prumer_tydem)
         List_T.append(prumer_tydem)
-    PoradiTyden=[]
+    PoradiTyden=[]  #tady bych chtel udelat nejak jeste list abych mel dvojice a pak je napsat do toho textaku
     for i in range(len(List_T)):
         PoradiTyden.append(i)
-    writer1=csv.writer(sedmdnu) 
+    dvojiceTyden=[]
+    for i in range(len(tyden_list)):
+        dvojiceTyden.append(i, List_T[i])       #tady resim zapisovani textaku
+    writer1=csv.writer(sedmdnu)     #tady mam depresi nevim co delat jak zapsat potrebuju data :(
     fieldnames = ['tyden' , 'prumer']
     writer1.writerow(fieldnames)
     for row in reader:            
@@ -36,7 +39,7 @@ def sedm_dnu(): #vypocet prumeru
             outrow = [name , capa]
             writer1.writerow(outrow)
 
-def rok_prumer():
+def rok_prumer(): # s rokem ti samy
     for row in reader:
         while 365 > len (rok_list):
             if row["datum"]-1 == row["datum"+1]:        # vyresit stejne jako u tejdnu
