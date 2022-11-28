@@ -6,8 +6,8 @@ rok_celkem = 0
 List_T=[]
 List_R=[]
 def dokument():
-    with open ("vstup.csv", encoding="utf -8",newline='')as vstup,  open('vystup_7dni.csv', mode='w',encoding="utf -8",newline='') as sedmdnu,  \
-     open('vystup_rok', mode='w',encoding="utf -8",newline='') as rok :
+    with open ("vstup.csv", mode='r'  encoding="utf -8",newline='') as vstup,  open('vystup_7dni.csv', mode='w',encoding="utf -8",newline='') as sedmdnu,  \
+     open('vystup_rok.csv', mode='w',encoding="utf -8",newline='') as rok :
             reader = csv.DictReader(vstup, delimiter=";")   
             next(reader) #uvedom si jak vypada prvni radek
             writer1=csv.writer(sedmdnu)
