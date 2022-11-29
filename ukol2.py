@@ -12,7 +12,7 @@ with open ("vstup.csv", mode='r' , encoding="utf -8",newline='') as vstup , open
         reader = csv.reader(vstup, delimiter=",")   
         writer_tyden=csv.writer(sedmdnu)
         writer_rok=csv.writer(rok)
-    for radek in reader :
+    for row in reader:
         if len(row) !=4:
             raise Exception("Vstupní data nemají správný počet sloupců(4)")
         cislo_radku += 1
