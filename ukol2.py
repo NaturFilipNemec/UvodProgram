@@ -66,8 +66,8 @@ with open ("vstup.csv", mode='r' , encoding="utf -8",newline='') as vstup , open
                 rok_list.clear()
                 rok_celkem=0
               
-print( Max_prutok)
-print (min_prutok)
+print( "největší denní prutok byl " , Max_prutok)
+print ("nejmenší denní prutok byl" ,min_prutok)
 
             
 
