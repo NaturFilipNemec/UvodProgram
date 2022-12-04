@@ -11,6 +11,7 @@ turtle.speed(0)
 přepona=sqrt(2*(strana*strana))
 cyklus=0
 L=[]
+n=0
 
 for y in range(b):
     for x in range(a):
