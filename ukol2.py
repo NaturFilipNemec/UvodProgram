@@ -15,15 +15,15 @@ with open ("vstup.csv", mode='r' , encoding="utf -8",newline='') as vstup , open
         reader = csv.reader(vstup, delimiter=",")   
         writer_tyden=csv.writer(sedmdnu)
         writer_rok=csv.writer(rok)
-        fieldnames_tyden = ['tyden' , 'prumer']
-        fieldnames_rok = ['rok' , 'prumer']
+        fieldnames_tyden = ['kod řeky','tyden' , 'prumer']
+        fieldnames_rok = ['kod řeky', 'rok' , 'prumer']
         writer_rok.writerow(fieldnames_rok)
         writer_tyden.writerow(fieldnames_tyden)
         for row in reader:
             if len(row) !=4:
                 raise Exception("Vstupní data nemají správný počet sloupců(4)")
             cislo_radku += 1
-
+#vypocet maxima minima
             if len(Max_prutok)==0 and len (min_prutok)==0 :
                 Max_prutok=[row[2] , row[3]]
                 min_prutok=[row[2] , row[3]]
@@ -31,7 +31,7 @@ with open ("vstup.csv", mode='r' , encoding="utf -8",newline='') as vstup , open
                 Max_prutok = [row[2], row[3]]
             if float(min_prutok[1]) > float(row[3]):
                 min_prutok = [row[2] , row[3]]
-
+#vypocet prumeru tydne
             if len(tyden_list)==0:
                 kod_reky_tyden=row[0]
                 datum_tyden = row[2]
@@ -48,7 +48,7 @@ with open ("vstup.csv", mode='r' , encoding="utf -8",newline='') as vstup , open
                 pomocnej_list_tyden.clear()
                 tyden_list.clear()
                 tyden_celkem=0
-
+#vypocet prumeru roku
             if len(rok_list)==0:
                 kod_reky_rok=row[0]
                 datum_rok=row[2]    
@@ -66,8 +66,6 @@ with open ("vstup.csv", mode='r' , encoding="utf -8",newline='') as vstup , open
                 rok_list.clear()
                 rok_celkem=0
               
-print (List_prumer_rok)
-print(List_prumer_tyden)
 print( Max_prutok)
 print (min_prutok)
 
