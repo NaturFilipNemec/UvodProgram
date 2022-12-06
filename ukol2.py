@@ -50,7 +50,7 @@ with open ("vstup.csv", mode='r' , encoding="utf -8",newline='') as vstup , open
                 if len(tyden_list)== 7:
                     for i in tyden_list:
                         tyden_celkem += i 
-                    prumer_tyden= tyden_celkem/7
+                    prumer_tyden= "{0:.4f}".format(tyden_celkem/7)
                     poradi_tyden+=1
                     pomocnej_list_tyden=[kod_reky_tyden, datum_tyden , prumer_tyden]
                     writer_tyden.writerow(pomocnej_list_tyden)
@@ -67,7 +67,7 @@ with open ("vstup.csv", mode='r' , encoding="utf -8",newline='') as vstup , open
             if len(tyden_list)== 7:
                 for i in tyden_list:
                     tyden_celkem += i 
-                prumer_tyden= tyden_celkem/7
+                prumer_tyden= "{0:.4f}".format(tyden_celkem/7)
                 poradi_tyden+=1
                 pomocnej_list_tyden=[kod_reky_tyden, datum_tyden , prumer_tyden]
                 writer_tyden.writerow(pomocnej_list_tyden)
@@ -87,7 +87,7 @@ with open ("vstup.csv", mode='r' , encoding="utf -8",newline='') as vstup , open
                 if len(tyden_list)== 7:
                     for i in rok_list:
                         rok_celkem += i 
-                    prumer_rok= rok_celkem/365
+                    prumer_rok= "{0:.4f}".format(rok_celkem/365)
                     poradi_rok+=1
                     pomocnej_list_tyden=[kod_reky_rok, datum_rok , prumer_rok]
                     writer_rok.writerow(pomocnej_list_rok)
@@ -104,7 +104,7 @@ with open ("vstup.csv", mode='r' , encoding="utf -8",newline='') as vstup , open
             if len(rok_list)==365:
                 for i in rok_list:
                     rok_celkem+=i
-                prumer_rok = rok_celkem/365
+                prumer_rok = "{0:.4f}".format(rok_celkem/365)
                 poradi_rok+=1
                 pomocnej_list_rok=[kod_reky_rok, datum_rok , prumer_rok]
                 writer_rok.writerow(pomocnej_list_rok)
