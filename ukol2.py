@@ -38,6 +38,7 @@ with open ("vstup.csv", mode='r' , encoding="utf -8",newline='') as vstup , open
                 datumicek=row[2]
                 aktualni_datum = datetime.strptime(datumicek, "%d.%m.%Y").date()
             datum_radku = datetime.strptime(row[2], "%d.%m.%Y").date()
+##tyden
             #vypocet prumeru tydne
             #reseni děr pro tyden
             while datum_radku !=aktualni_datum:
@@ -75,6 +76,7 @@ with open ("vstup.csv", mode='r' , encoding="utf -8",newline='') as vstup , open
                 pomocnej_list_tyden.clear()
                 tyden_list.clear()
                 tyden_celkem=0
+##ROK
 #vypocet prumeru roku
 #detekce děr u roka
             while datum_radku !=aktualni_datum:
@@ -116,6 +118,7 @@ with open ("vstup.csv", mode='r' , encoding="utf -8",newline='') as vstup , open
             if aktualni_datum == datum_radku:
                 aktualni_datum+=timedelta(days=1)
               
+print("hotovo, průměry týdnů jsou v dokumentu vystup_7dni.csv a průměry roků jsou v dokumentu vystup_rok.csv")
 print( "největší denní prutok byl " , Max_prutok)
 print ("nejmenší denní prutok byl" ,min_prutok)
 
