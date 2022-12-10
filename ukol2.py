@@ -53,7 +53,7 @@ with open ("vstup.csv", mode='r' , encoding="utf -8",newline='') as vstup , open
 ##tyden
                 if aktualni_tyden==0:
                     aktualni_tyden=datetime.strptime(row[2], "%d.%m.%Y").date()
-            #vypocet prumeru tydne
+        #vypocet prumeru tydne
             #reseni děr pro tyden
                 while datum_radku !=aktualni_datum:
                     chybejici_datumy.append(str(aktualni_datum))#chybejici datumy
