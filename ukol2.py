@@ -5,6 +5,7 @@ tyden_celkem = 0
 rok_list=[]
 rok_celkem = 0
 min_prutok= []
+Max_prutok = []
 aktualni_datum=0
 chybejici_datumy=[]
 zaporne_prutoky=[]
@@ -12,13 +13,8 @@ aktualni_tyden=0
 aktualni_rok=0
 #kontrola vstupního souboru
 try:
-    f = open('vstup.csv')
-except FileNotFoundError:
-    print('Vstupní soubor neexistuje')
-finally:
-    f.close()
 #samotná prace s dokumentem
-with open ("vstup.csv", mode='r' , encoding="utf -8",newline='') as vstup , open('vystup_7dni.csv', mode='w',encoding="utf -8",newline='') as sedmdnu, \
+    with open ("vstup.csv", mode='r' , encoding="utf -8",newline='') as vstup , open('vystup_7dni.csv', mode='w',encoding="utf -8",newline='') as sedmdnu, \
      open('vystup_rok.csv', mode='w',encoding="utf -8",newline='') as rok :
         reader = csv.reader(vstup, delimiter=",")   
         writer_tyden=csv.writer(sedmdnu)
@@ -146,13 +142,17 @@ with open ("vstup.csv", mode='r' , encoding="utf -8",newline='') as vstup , open
                 aktualni_datum+=timedelta(days=1)
             
               
-print("hotovo, průměry týdnů jsou v dokumentu vystup_7dni.csv a průměry roků jsou v dokumentu vystup_rok.csv")
-print( "největší denní prutok byl " , Max_prutok)
-print ("nejmenší denní prutok byl" ,min_prutok)
-if zaporne_prutoky!=[]:
-    print ("chybna data. Zaporné nebo nulové prutoky - " , zaporne_prutoky)
-if chybejici_datumy != []:
-    print("chybejici datumy jsou - ", chybejici_datumy)
+    print("hotovo, průměry týdnů jsou v dokumentu vystup_7dni.csv a průměry roků jsou v dokumentu vystup_rok.csv")
+    print( "největší denní prutok byl " , Max_prutok)
+    print ("nejmenší denní prutok byl" ,min_prutok)
+    if zaporne_prutoky!=[]:
+        print ("chybna data. Zaporné nebo nulové prutoky - " , zaporne_prutoky)
+    if chybejici_datumy != []:
+        print("chybejici datumy jsou - ", chybejici_datumy)
+except FileNotFoundError:
+    print('Vstupní soubor neexistuje')
+except PermissionError:
+    print("Program nemá přístup k zápisu výstupních souborů")
 
 
             
