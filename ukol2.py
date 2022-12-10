@@ -1,12 +1,9 @@
 import csv
 from datetime import datetime , timedelta
 tyden_list=[]
-List_prumer_tyden=[]
 tyden_celkem = 0
 rok_list=[]
 rok_celkem = 0
-List_prumer_rok= []
-Max_prutok=[]
 min_prutok= []
 aktualni_datum=0
 chybejici_datumy=[]
@@ -33,6 +30,12 @@ with open ("vstup.csv", mode='r' , encoding="utf -8",newline='') as vstup , open
         for row in reader:
             if len(row) !=4:#kontrola dat
                 raise Exception("Vstupní data nemají správný počet sloupců(4)")
+            try:
+                zkouska = float(row[3])
+            except ValueError:
+                print(row[2] , "Průtok není čislo")
+                zaporne_prutoky.append([str(aktualni_datum), row[3]])
+                continue
             # aktualizace datumu
             if aktualni_datum == 0:
                 datumicek=row[2]
@@ -67,7 +70,6 @@ with open ("vstup.csv", mode='r' , encoding="utf -8",newline='') as vstup , open
                         prumer_tyden= "{0:.4f}".format(tyden_celkem/(len(tyden_list)-nuly))
                         pomocnej_list_tyden=[kod_reky_tyden, datum_tyden , prumer_tyden]
                         writer_tyden.writerow(pomocnej_list_tyden)
-                        List_prumer_tyden.append(pomocnej_list_tyden)
                         pomocnej_list_tyden.clear()
                         tyden_list.clear()
                         tyden_celkem=0
@@ -85,7 +87,6 @@ with open ("vstup.csv", mode='r' , encoding="utf -8",newline='') as vstup , open
                     prumer_tyden= "{0:.4f}".format(tyden_celkem/(len(tyden_list)-nuly))
                     pomocnej_list_tyden=[kod_reky_tyden, datum_tyden , prumer_tyden]
                     writer_tyden.writerow(pomocnej_list_tyden)
-                    List_prumer_tyden.append(pomocnej_list_tyden)
                     pomocnej_list_tyden.clear()
                     tyden_list.clear()
                     tyden_celkem=0
@@ -109,7 +110,6 @@ with open ("vstup.csv", mode='r' , encoding="utf -8",newline='') as vstup , open
                         prumer_rok= "{0:.4f}".format(rok_celkem/len(rok_list))
                         pomocnej_list_rok=[kod_reky_rok, datum_rok , prumer_rok]
                         writer_rok.writerow(pomocnej_list_rok)
-                        List_prumer_rok.append(pomocnej_list_rok)
                         pomocnej_list_rok.clear()
                         rok_list.clear()
                         if len(rok_list)==0:
@@ -130,7 +130,6 @@ with open ("vstup.csv", mode='r' , encoding="utf -8",newline='') as vstup , open
                     prumer_rok = "{0:.4f}".format(rok_celkem/len(rok_list))
                     pomocnej_list_rok=[kod_reky_rok, datum_rok , prumer_rok]
                     writer_rok.writerow(pomocnej_list_rok)
-                    List_prumer_rok.append(pomocnej_list_rok)
                     pomocnej_list_rok.clear()
                     rok_list.clear()
                     if len(rok_list)==0:
